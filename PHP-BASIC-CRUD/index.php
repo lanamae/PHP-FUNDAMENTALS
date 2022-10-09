@@ -1,3 +1,8 @@
+<?php
+    require './read.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +14,7 @@
 <body>
     <div class="main">
         <div class="create-main">
-            <form action="#" method="POST">
+            <form action="create.php" method="POST">
                 <h2>CREATE ACCOUNT</h2>
                 <label for="username">UserName: </label>
                 <input type="text" name="username" id="username" placeholder="Enter your Username">
@@ -37,10 +42,14 @@
                 <th>ACTIONS</th>
             </tr>
             
+            <?php
+
+            while($results = mysqli_fetch_array($sqlAccount)){?>
+
             <tr>
-                <td>SAMPLE ID</td>
-                <td>SAMPLE USERNAME</td>
-                <td>SAMPLE PASSWORD</td>
+                <td> <?php echo $results['id']; ?> </td>
+                <td> <?php echo $results['username']; ?> </td>
+                <td> <?php echo $results['password']; ?></td>
                 <td>
                     <form action="#" method="#">
                         <input type="submit" name="edit" value="EDIT">
@@ -51,11 +60,11 @@
                     </form>
                 </td>
                     
-                
+                    
 
 
             </tr>
-
+            <?php } ?>
 
         </table>
 
