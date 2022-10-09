@@ -19,7 +19,7 @@
 
 
     else{
-        echo "<script>window.location.href='create.php'</script>";
+        echo "<script>window.location.href='index.php'</script>";
 
     }
 
