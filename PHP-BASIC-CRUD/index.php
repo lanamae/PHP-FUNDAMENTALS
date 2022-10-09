@@ -1,5 +1,6 @@
 <?php
     require './read.php';
+    
 ?>
 
 
@@ -55,12 +56,13 @@
                         <input type="submit" name="edit" value="EDIT">
                     </form> 
                     
-                    <form action="#" method="#">
-                        <input type="submit" name="deleter" value="DELETE">
+                    <form action="delete.php" method="POST">
+                        <input type="submit" name="delete" value="DELETE">
+                        <input type="hidden" name="deleteId" value=<?php echo $results['id']?> />
                     </form>
                 </td>
                     
-                    
+
 
 
             </tr>
