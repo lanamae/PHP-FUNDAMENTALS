@@ -1,3 +1,14 @@
+<?php
+    require './read.php';
+    
+
+    if(isset($_POST['addTodo'])){
+        $timeDate = $_POST['timeDate'];
+    }
+   
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +22,17 @@
 <body>
     <div class="main">
 
+
+
         <div class="create-todo">
-            <form action="#" method="POST">
+            <form action="create.php" method="POST">
                 <h2>TODO LIST</h2>
                 <input type="text" name="todo" id="todo" rows="5" column="10">
-                <p>Date: </p>
-                <p>Time: </p>
+                <p type="hidden" class=timeDate name="todo" id="todo" rows="5" column="10">
+            
+                
                 <input type="submit" name="addTodo" value="ADD">
+               
             </form>
 
             
@@ -29,18 +44,24 @@
         <hr>
 
         <div class="todoList">
-            <table>
-                <tr class="indiList">
-                    <td>
+            <div class='table'>
+
+                <?php
+
+                while($results = mysqli_fetch_array($sqlRead)){ ?>
+
+           
+                <div class="indiList">
+                    <div>
                         <input type="checkbox" name="check" class="check">
-                        <span class="list">Sample to do list</span>
-                        <p>created on October 10, 2022</p>
+                        <span class="list"><?php echo $results['listVal'] ?> </span>
+                        <!-- <p class="setDate"><?php echo $timeDate?></p> -->
 
                         
-                    </td>
+                    </div>
 
 
-                    <td>
+                    <div>
                         <form action="#" method="POST">
                             <input type="submit" name="edit" value="EDIT">
                         </form>
@@ -48,13 +69,13 @@
                         <form action="#" method="POST">
                             <input type="submit" name="delete" value="DELETE">
                         </form>
-                    </td>
+                    </div>
                     
 
-                </tr>
-
+                </div>
+                <?php }?>
                 
-            </table>
+            </div>
         </div>
 
 
@@ -65,4 +86,18 @@
    
     
 </body>
+
+<script> 
+    // const timeDate = document.querySelector('.timeDate');
+    // const setDate = document.querySelector('.setDate');
+
+    // let dateTime = new Date();
+
+    // timeDate.innerText = dateTime;
+    // setDate.innerText = dateTime;
+   
+    
+
+
+</script> 
 </html>
