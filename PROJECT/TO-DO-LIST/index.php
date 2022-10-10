@@ -1,11 +1,7 @@
 <?php
     require './read.php';
-    
-
-    if(isset($_POST['addTodo'])){
-        $timeDate = $_POST['timeDate'];
-    }
    
+
 
 ?>
 
@@ -28,7 +24,7 @@
             <form action="create.php" method="POST">
                 <h2>TODO LIST</h2>
                 <input type="text" name="todo" id="todo" rows="5" column="10">
-                <p type="hidden" class=timeDate name="todo" id="todo" rows="5" column="10">
+               
             
                 
                 <input type="submit" name="addTodo" value="ADD">
@@ -55,19 +51,23 @@
                     <div>
                         <input type="checkbox" name="check" class="check">
                         <span class="list"><?php echo $results['listVal'] ?> </span>
-                        <!-- <p class="setDate"><?php echo $timeDate?></p> -->
+                        
 
                         
                     </div>
 
 
                     <div>
-                        <form action="#" method="POST">
+                        <form action="update.php" method="POST">
                             <input type="submit" name="edit" value="EDIT">
+                            <input type="hidden" name="editTodo" value="<?php echo $results['listVal'] ?>">
+                            <input type="hidden" name="editId" value="<?php echo $results['id']?>" />
+                        
                         </form>
 
-                        <form action="#" method="POST">
+                        <form action="delete.php" method="POST">
                             <input type="submit" name="delete" value="DELETE">
+                            <input type="hidden" name="deleteId" value="<?php echo $results['id'] ?>">
                         </form>
                     </div>
                     
@@ -82,7 +82,28 @@
 
     </div>
 
-    <div class="new"></div>
+    <div class="update">
+
+
+    <!-- <div class="update-todo">
+            <form action="update.php" method="POST">
+                <h2>UPDATE TODO LIST</h2>
+                <input type="text" name="updatetodo" id="todo" value=<?php echo $editTodo ?> />
+                <input type="hidden" name="updateId" value="<?php echo $editId ?>" />
+                
+                <p type="hidden" class=timeDate name="todo" id="todo" rows="5" column="10">
+            
+                
+                <input type="submit" name="addTodo" value="ADD">
+               
+            </form>
+
+            
+        
+            
+
+        </div>
+    </div> -->
    
     
 </body>

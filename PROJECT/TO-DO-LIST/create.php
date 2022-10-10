@@ -3,7 +3,7 @@
 
     if(isset($_POST['addTodo'])){
         $todo = $_POST['todo'];
-        $timeDate = $_POST['timeDate'];
+      
 
         $queryAdd = "INSERT INTO list VALUES(null, '$todo')";
         $sqlAdd = mysqli_query($connection, $queryAdd);

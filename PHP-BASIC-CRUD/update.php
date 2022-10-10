@@ -52,7 +52,7 @@
 
                 <input type="submit" name="update" value="UPDATE">
 
-                <input type="hidden" name="updateId" value=<?php echo $editId ?> />
+                <input type="hidden" name="updateId" value="<?php echo $editId ?>" />
             </form>
         </div>
 
