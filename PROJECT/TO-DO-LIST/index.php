@@ -27,7 +27,7 @@
                
             
                 
-                <input type="submit" name="addTodo" value="ADD">
+                <input type="submit" class="addbtn" name="addTodo" value="ADD">
                
             </form>
 
@@ -57,16 +57,16 @@
                     </div>
 
 
-                    <div>
+                    <div class="actions">
                         <form action="update.php" method="POST">
-                            <input type="submit" name="edit" value="EDIT">
+                            <input type="submit" class="editbtn" name="edit" value="EDIT">
                             <input type="hidden" name="editTodo" value="<?php echo $results['listVal'] ?>">
                             <input type="hidden" name="editId" value="<?php echo $results['id']?>" />
                         
                         </form>
 
                         <form action="delete.php" method="POST">
-                            <input type="submit" name="delete" value="DELETE">
+                            <input type="submit" class="deletebtn" name="delete" value="DELETE">
                             <input type="hidden" name="deleteId" value="<?php echo $results['id'] ?>">
                         </form>
                     </div>
